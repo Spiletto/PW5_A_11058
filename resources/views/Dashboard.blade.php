@@ -15,6 +15,16 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
         rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
         crossorigin="anonymous">
+        <style>
+            .blue-bg {
+                background-color: blue;
+                color: white;
+            }
+            .btn-secondary {
+                background-color: white;
+                color: gray;
+            }
+        </style>
 </head>
     <body class="hold-transition sidebar-mini">
         <div class="wrapper">
@@ -32,7 +42,7 @@
         <ul class="navbar-nav ml-auto ">
         <!-- Navbar Search -->
             <li class="nav-item d-flex align-items-center">
-                <button class="btn btn-sm btn-danger">
+                <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#myModal">
                     <i class="fa-solid fa-right-from-bracket"></i> Logout
                 </button>
                     <div class="navbar-search-block">
@@ -99,6 +109,16 @@
             </li>
         </ul>
         </nav>
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <li class="nav-item">
+                <a href="{{ url('gymss') }}" class="nav-link">
+                <i class="nav-icon far fa-circle"></i>
+                <p> Presensi Member</p>
+                </a>
+            </li>
+        </ul>
+        </nav>
  <!-- /.sidebar-menu -->
  </div>
  <!-- /.sidebar -->
@@ -128,5 +148,28 @@
         crossorigin="anonymous"></script>
         <!-- AdminLTE App -->
         <script src="{{ asset('js/adminlte.min.js') }}"></script>
+        <div class="modal" tabindex="-1" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header blue-bg">
+                        <h5 class="modal-title">Apakah Ingin Logout?</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <a href="{{ url('Login') }}" class="btn btn-danger">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            const myModal = document.getElementById('myModal');
+            const myInput = document.getElementById('myInput');
+
+            myModal.addEventListener('shown.bs.modal', () => {
+                myInput.focus();
+            });
+        </script>
     </body>
 </html>

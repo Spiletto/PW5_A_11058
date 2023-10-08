@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('Login');
 });
 
+Route::get('/Login', function () {
+    return view('Login');
+});
+
 Route::get('/dashboard', function () {
     return view('Dashboard');
 });
@@ -57,6 +61,70 @@ Route::get('/gyms', function () {
                 'ruang' => 'Kelas D',
                 'rating' => '5',
             ]
+        ]
+    ]);
+});
+
+Route::get('/gymss', function () {
+    return view('Gyms/presensi', [
+        'kelas' => [
+            [
+                "nama" => "Body Combat",
+                'instruktur' => 'Jolly Hans Frankle',
+                'ruang' => 'Kelas A',
+                'member' => '6',
+                'rating' => '5'
+            ],
+        ],
+        'member' => [
+            [
+                'gambar' => 'https://media.tacdn.com/media/attractions-splice-spp-674x446/06/dc/83/bc.jpg',
+                "nama" => "Rakai Anandhi Mahardhika",
+                'email' => 'raka@gmail.com',
+                'telp' => '081391595012',
+                'jenis' => 'Gold',
+                'metode' => 'Deposit Kelas'
+            ],
+            [
+                'gambar' => 'https://media.tacdn.com/media/attractions-splice-spp-674x446/06/dc/83/bc.jpg',
+                "nama" => "Daniel Ricky Alexander",
+                'email' => 'Ricky@gmail.com',
+                'telp' => '082123123123',
+                'jenis' => 'Silver',
+                'metode' => 'Deposit Uang'
+            ],
+            [
+                'gambar' => 'https://media.tacdn.com/media/attractions-splice-spp-674x446/06/dc/83/bc.jpg',
+                "nama" => "Agung Raynaldi Mangiri",
+                'email' => 'Agung@gmail.com',
+                'telp' => '085976456777',
+                'jenis' => 'Black',
+                'metode' => 'Deposit Kelas'
+            ],
+            [
+                'gambar' => 'https://media.tacdn.com/media/attractions-splice-spp-674x446/06/dc/83/bc.jpg',
+                "nama" => "Patrick nino kolin prama",
+                'email' => 'patrick@gmail.com',
+                'telp' => '089765332133',
+                'jenis' => 'Black',
+                'metode' => 'Deposit Uang'
+            ],
+            [
+                'gambar' => 'https://media.tacdn.com/media/attractions-splice-spp-674x446/06/dc/83/bc.jpg',
+                "nama" => "Ignatius Sodhana Tebri Artanto",
+                'email' => 'Iqnatius@gmail.com',
+                'telp' => '082456763988',
+                'jenis' => 'Gold',
+                'metode' => 'Deposit Kelas'
+            ],
+            [
+                'gambar' => 'https://media.tacdn.com/media/attractions-splice-spp-674x446/06/dc/83/bc.jpg',
+                "nama" => "Kevin Jonathan Wijaya",
+                'email' => 'KejoWidjaya@gmail.com',
+                'telp' => '082456311890',
+                'jenis' => 'Silver',
+                'metode' => 'Deposit Uang'
+            ],
         ]
     ]);
 });
