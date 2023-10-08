@@ -13,6 +13,10 @@
     .gambarKelas {
         width: 250px;
     }
+    .toast-body {
+        background-color: green;
+        color: white;
+    }
 </style>
 <div class="content">
     <div class="container-fluid">
@@ -93,32 +97,38 @@
         </div>
             <div class="d-flex justify-content-between align-items-center">
                 <h3>Daftar Member</h3>
-                <button type="button" class="btn btn-primary" id="liveToastBtn">Presensi</button>
+                <button type="button" class="btn btn-primary" id="liveToastBtn" onclick="changeButtonColor()">
+                    <i class="fas fa-check"></i> Presensi
+                </button>
 
                 <div class="toast-container position-fixed bottom-0 end-0 p-3">
-                <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-                    <div class="toast-header">
-                    <img src="..." class="rounded me-2" alt="...">
-                    <strong class="me-auto">Bootstrap</strong>
-                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="toast-body">
+                            <i class="fas fa-check-circle"></i> Berhasil Mempresensi Member
+                        </div>
                     </div>
-                    <div class="toast-body">
-                    Hello, world! This is a toast message.
-                    </div>
-                </div>
                 </div>
             </div>
             <script>
-                const toastTrigger = document.getElementById('liveToastBtn')
-                const toastLiveExample = document.getElementById('liveToast')
-
-                if (toastTrigger) {
-                const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
-                toastTrigger.addEventListener('click', () => {
-                    toastBootstrap.show()
-                    })
-            }
+                const presensiButton = document.getElementById('liveToastBtn');
+                const toastLiveExample = document.getElementById('liveToast');
+                
+                if (presensiButton) {
+                    presensiButton.addEventListener('click', () => {
+                        const toastBootstrap = new bootstrap.Toast(toastLiveExample);
+                        toastBootstrap.show();
+                    });
+                }
             </script>
+            <script>
+                function changeButtonColor() {
+                    const presensiButton = document.getElementById('liveToastBtn');
+                    presensiButton.classList.remove('btn-primary');
+                    presensiButton.classList.add('btn-success');
+                }
+            </script>
+
+
         <table class="table table-striped border-dark text-center">
             <tr class="">
                 <th>Gambar</th>
